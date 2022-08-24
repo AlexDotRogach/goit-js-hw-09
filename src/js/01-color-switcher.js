@@ -1,13 +1,14 @@
 const controlBtns = document.querySelectorAll('button');
 const body = document.querySelector('body');
 const [startBtn, stopBtn] = [...controlBtns];
+let changeBodyColorId = null;
 let timerId = null;
 
 // default disabled stop btn
 stopBtn.disabled = true;
 
 startBtn.addEventListener('click', () => {
-  cngBodyColorId = setInterval(() => {
+  changeBodyColorId = setInterval(() => {
     body.style.backgroundColor = getRandomHexColor();
   }, 1000);
 
@@ -15,7 +16,7 @@ startBtn.addEventListener('click', () => {
 });
 
 stopBtn.addEventListener('click', () => {
-  clearInterval(cngBodyColorId);
+  clearInterval(changeBodyColorId);
   changeStateBtn(controlBtns);
 });
 
